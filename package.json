@@ -1,0 +1,40 @@
+{
+  "name": "react-redux-effects",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "react-redux-effects",
+  "repository": "github.com:tonmat/react-redux-effects.git",
+  "bugs": "https://github.com/tonmat/react-redux-effects/issues",
+  "homepage": "https://github.com/tonmat/react-redux-effects",
+  "keywords": [
+    "react",
+    "redux",
+    "effects",
+    "middleware",
+    "redux-middleware"
+  ],
+  "author": "Everton Matumoto <everton.matumoto@gmail.com>",
+  "main": "dist/index.js",
+  "sideEffects": false,
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "clear": "rimraf dist",
+    "start": "npx babel src --watch --out-dir dist",
+    "build": "npx babel src --out-dir dist"
+  },
+  "peerDependencies": {
+    "redux": "^4.0.0",
+    "react-redux": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "react-redux": "^7",
+    "redux": "^4",
+    "rimraf": "^3.0.2"
+  }
+}
