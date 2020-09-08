@@ -10,11 +10,11 @@ export const effectsReducers = {
     }
     return state;
   },
-  '@@ERROR'(state = {}, action) {
+  '@@ERRORS'(state = {}, action) {
     switch (action.type) {
-      case '@@ERROR/CLEAR':
+      case '@@ERRORS/CLEAR':
         return {...state, [action.target]: false};
-      case '@@ERROR/SET':
+      case '@@ERRORS/SET':
         return {...state, [action.target]: action.error ?? true};
     }
     return state;
@@ -31,10 +31,10 @@ export function effectsMiddleware(store) {
         activeEffects[action[0].type] = true;
         next(action[0]);
         store.dispatch({type: '@@LOADING/BEGIN', target: action[0].type});
-        store.dispatch({type: '@@ERROR/CLEAR', target: action[0].type});
+        store.dispatch({type: '@@ERRORS/CLEAR', target: action[0].type});
         return Promise.resolve()
             .then(() => action[1](action[0], store))
-            .catch(error => store.dispatch({type: '@@ERROR/SET', target: action[0].type, error}))
+            .catch(error => store.dispatch({type: '@@ERRORS/SET', target: action[0].type, error}))
             .finally(() => store.dispatch({type: '@@LOADING/END', target: action[0].type}))
             .finally(() => activeEffects[action[0].type] = false);
       }
@@ -57,8 +57,8 @@ export function useLoading() {
   return false;
 }
 
-export function useError() {
-  const error = useSelector(state => state['@@ERROR']);
+export function useErrors() {
+  const error = useSelector(state => state['@@ERRORS']);
   if (arguments.length === 0)
     return Object.values(error).flatMap(value => value ?? []);
   return Array.from(arguments).flatMap(arg => error[arg] ?? []);
