@@ -1,6 +1,6 @@
 {
   "name": "react-redux-effects",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "description": "react-redux-effects",
   "repository": "github.com:tonmat/react-redux-effects.git",
@@ -22,7 +22,8 @@
   "scripts": {
     "clear": "rimraf dist",
     "start": "npx babel src --watch --out-dir dist",
-    "build": "npx babel src --out-dir dist"
+    "build": "npx babel src --out-dir dist",
+    "deploy": "npm run clear && npm run build && npm publish"
   },
   "peerDependencies": {
     "redux": "^4.0.0",
