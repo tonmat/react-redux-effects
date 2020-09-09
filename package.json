@@ -1,6 +1,6 @@
 {
   "name": "react-redux-effects",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "description": "react-redux-effects",
   "repository": "github.com:tonmat/react-redux-effects.git",
@@ -17,7 +17,6 @@
   "main": "dist/index.js",
   "sideEffects": false,
   "files": [
-    "src",
     "dist"
   ],
   "scripts": {

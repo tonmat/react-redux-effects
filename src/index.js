@@ -60,6 +60,6 @@ export function useLoading() {
 export function useErrors() {
   const error = useSelector(state => state['@@ERRORS']);
   if (arguments.length === 0)
-    return Object.values(error).flatMap(value => value ?? []);
-  return Array.from(arguments).flatMap(arg => error[arg] ?? []);
+    return Object.values(error).flatMap(value => value ?? []).filter(value => value !== false);
+  return Array.from(arguments).flatMap(arg => error[arg] ?? []).filter(value => value !== false);
 }
